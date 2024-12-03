@@ -1,0 +1,88 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  display: flex;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.sidebar {
+  width: 20%;
+  padding: 20px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.products {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 50px;
+}
+
+.product-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+
+  
