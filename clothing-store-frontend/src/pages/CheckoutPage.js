@@ -44,7 +44,7 @@ const CheckoutPage = () => {
     }
 
     try {
-      const response = await axios.get("http://localhost:5002/api/users/cart", {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/users/cart`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart(response.data);
@@ -102,7 +102,7 @@ const CheckoutPage = () => {
   
     try {
       const response = await axios.post(
-        "http://localhost:5002/api/users/cart/checkout",
+        `${process.env.REACT_APP_API_BASE_URL}/users/cart/checkout`,
         {
           shippingAddress: shippingInfo,
           currency: currency,  

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const NavigationBar = ({ loggedInUser, setLoggedInUser }) => {
-  const [menuOpen, setMenuOpen] = useState(false); // Added state for menu toggle
+  const [menuOpen, setMenuOpen] = useState(false); 
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 

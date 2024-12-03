@@ -16,7 +16,7 @@ const UserProfile = ({ loggedInUser }) => {
       }
 
       try {
-        const response = await axios.get("http://localhost:5002/api/users/profile", {
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/users/profile`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProfileData(response.data);

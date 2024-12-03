@@ -6,7 +6,7 @@ import "../css/ShoppingCart.css";
 const ShoppingCart = () => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0);
-  const [isUpdating, setIsUpdating] = useState(false); // To disable buttons during updates
+  const [isUpdating, setIsUpdating] = useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const ShoppingCart = () => {
     }
 
     try {
-      const response = await axios.get("http://localhost:5002/api/users/cart", {
+      const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/users/cart`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setCart(response.data);
@@ -50,7 +50,7 @@ const ShoppingCart = () => {
   
     try {
       await axios.post(
-        "http://localhost:5002/api/users/cart",
+        `${process.env.REACT_APP_API_BASE_URL}/users/cart`,
         { productId, quantity: newQuantity }, 
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -66,7 +66,7 @@ const ShoppingCart = () => {
     const token = localStorage.getItem("token");
 
     try {
-      await axios.delete(`http://localhost:5002/api/users/cart/item/${productId}`, {
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/users/cart/item/${productId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchCart(); 

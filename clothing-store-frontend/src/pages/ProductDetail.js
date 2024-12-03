@@ -13,7 +13,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:5002/api/products/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/products/${id}`);
         setProduct(response.data);
       } catch (err) {
         console.error("Error fetching product details:", err);
@@ -39,7 +39,7 @@ const ProductDetail = () => {
   
     try {
       const response = await axios.post(
-        "http://localhost:5002/api/users/cart",
+        `${process.env.REACT_APP_API_BASE_URL}/users/cart`,
         { productId: id, quantity, size: selectedSize },
         { headers: { Authorization: `Bearer ${token}` } }
       );

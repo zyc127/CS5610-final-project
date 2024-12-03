@@ -1,10 +1,11 @@
 {
   "name": "clothing-store-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js", 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node models/FakerSeed.js"
+    "seed": "node models/FakerSeed.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,8 @@
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.1"
+  },
+  "engines": {
+    "node": ">=14.x"
   }
 }

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import config from "../config";
 import { Link, useSearchParams } from "react-router-dom";
 import "../css/HomePage.css";
 
@@ -15,7 +14,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`${config.API_BASE_URL}/products`);
+        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/products`);
         setProducts(response.data);
       } catch (err) {
         console.error("Error fetching products:", err);
@@ -56,7 +55,7 @@ const HomePage = () => {
     })
     .sort((a, b) => {
       if (sortBy === "featured") {
-        return Math.random() - 0.5; 
+        return Math.random() - 0.5;
       }
       return sortBy === "low-to-high" ? a.price - b.price : b.price - a.price;
     });

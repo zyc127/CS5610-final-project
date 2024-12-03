@@ -21,7 +21,7 @@ const Login = ({ setLoggedInUser }) => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5002/api/users/register", registerData);
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/login`, registerData);
       alert("Account created successfully! Please log in.");
     } catch (err) {
       console.error("Error creating account:", err.response?.data?.message || err.message);
@@ -32,7 +32,7 @@ const Login = ({ setLoggedInUser }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5002/api/users/login", loginData); 
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/register`, loginData); 
       console.log("Login response:", response.data);
 
       setLoggedInUser(response.data.user.username);
